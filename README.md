@@ -48,7 +48,7 @@ Step 6 opens a chat UI in your browser locally.
 3.api.py: A small FastAPI server that takes a question from outside, hands it to the brain in main.py, and sends the answer back. It doesn't do any of the thinking itself — it just relays.
 4.app_ui.py: A Streamlit chat window where a person types a question and sees the conversation. It talks to the front door (api.py), never directly to the brain.
 
-## Point 3
+## Point 3 (also send as a txt file in the email)
 
 The agent can answer questions about my opinions about basketball players by reading the CSV file in the project. It can also search the internet to find specific stats or consensus opinions about a player to compare it to mine.
 
