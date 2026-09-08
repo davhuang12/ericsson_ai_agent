@@ -3,4 +3,6 @@ langchain-google-genai
 langchain-chroma
 langchain-community
 pandas
-duckduckgo-search
+ddgs
+fastapi
+streamlit
