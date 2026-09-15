@@ -56,13 +56,17 @@ Answer in plain text without markdown formatting.
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
-
+    iteration : int
+    
 def call_model(state: State):
     response = model.invoke([SYSTEM_PROMPT] + state["messages"])
-    return {"messages": [response]}
+    cur_iteration = state.get("iteration", 0)
+    return {"messages": [response], "iteration": cur_iteration + 1}
 
 def should_continue(state: State):
     last_message = state["messages"][-1]
+    if state.get("iteration", 0) >= 3:
+        return END
     return "tools" if getattr(last_message, "tool_calls", None) else END
 
 graph = StateGraph(State)
